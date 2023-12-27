@@ -4,8 +4,9 @@ Esta exploraciòn de datos, para poder ser replicada requiere :
 * Sistema operativo Linux - Ubuntu
 * Lenguaje de programaciòn Python
 * Motor de Base de datos Mysql
+* Quarto
 
-Se recomienda instalar los mismos antes de clonar el repositorio. En la carpeta local en donde se almaceno proyecto, crear entorno en python 
+Se recomienda instalar los mismos antes de clonar el repositorio. En la carpeta local en donde se almaceno proyecto, crear entorno en Python 
 ```
 python3 -m venv .venv
 ```
@@ -13,7 +14,7 @@ python3 -m venv .venv
 source .venv/bin/activate
 ```
 
-Usar requirements.txt para la instalaciòn de librerias. Para instalaciòn desde requirements.txt
+Usar requirements.txt para la instalaciòn de librerias. Se trabajo principalmente con las librerìas Pandas, plotly y PyMySQL. 
 
 ```
 python3 -m pip install -r requirements.txt
