@@ -3,7 +3,7 @@
 Esta exploraciòn de datos, para poder ser replicada requiere :
 * Sistema operativo Linux - Ubuntu
 * Lenguaje de programaciòn Python
-* Base de datos Mysql
+* Motor de Base de datos Mysql
 
 Se recomienda instalar los mismos antes de clonar el repositorio. En la carpeta local en donde se almaceno proyecto, crear entorno en python 
 ```
