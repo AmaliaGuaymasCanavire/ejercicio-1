@@ -1,0 +1,1971 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Quarto Basics</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="fair-data-db_files/libs/clipboard/clipboard.min.js"></script>
+<script src="fair-data-db_files/libs/quarto-html/quarto.js"></script>
+<script src="fair-data-db_files/libs/quarto-html/popper.min.js"></script>
+<script src="fair-data-db_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="fair-data-db_files/libs/quarto-html/anchor.min.js"></script>
+<link href="fair-data-db_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="fair-data-db_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="fair-data-db_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="fair-data-db_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="fair-data-db_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Quarto Basics</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="fair-use-index" class="level1">
+<h1>FAIR USE INDEX</h1>
+<section id="problema" class="level3">
+<h3 class="anchored" data-anchor-id="problema">Problema</h3>
+<p>Cada vez más los Datos y Algoritmos están presentes en los sistemas y/o dispositivos que influyen en la vida de las personas. Entendiendo a la persona como un individuo de la especie humana.</p>
+<p>En estos tiempos nos enfrentamos a un escenario caracterizado por diversas oportunidades, tensiones y desafíos que demandan compromisos a nivel individual, colectivo y ambiental. Los estados, empresas, organismos, u otras organizaciones habilitan espacios de reflexión y acción ante el impacto del uso de Datos, Ciencias de Datos e Inteligencia Artificial (IA) en las personas y en la naturaleza.</p>
+<p>¿Pueden las IA ser consideradas “autores/as” o “titulares de derechos”?. Para empezar a responder esta pregunta, de debate y reflexiòn en estos años, podemos empezar por investigar sobre la ley de derecho de autor y regulaciones en IA.</p>
+</section>
+<section id="objetivo" class="level3">
+<h3 class="anchored" data-anchor-id="objetivo">Objetivo</h3>
+<p>Identificar caracterìsticas de los casos judiciales que los tribunales de EE.UU han determinado previamente como justos o no justos en relaciòn a los principios y a la aplicación del uso legítimo de la ley de derechos de autor. EE.UU es un paìs con antecedentes controversiales en relaciòn al cumplimiento y la flexibilidad de la ley de derecho de autor aplicada en empresas tecnològicas. Preguntas a considerar: * ¿Cuàles son los tipos de casos judiciales determinados por los tribunales de EE.UU? * ¿Cuàles son las categorìas de casos judiciales exploradas por los tribunales de EE.UU ?</p>
+<p>El Índice de Uso Justo (Fair Use Index) rastrea una variedad de decisiones judiciales para ayudar a abogados y no abogados a comprender mejor los tipos de usos que los tribunales han determinado previamente como justos o no justos. Las decisiones abarcan múltiples jurisdicciones federales, incluida la Corte Suprema de Estados Unidos, los tribunales de apelación de circuito y los tribunales de distrito. Tenga en cuenta que, si bien el Índice incorpora una amplia selección de casos, no incluye todas las opiniones judiciales sobre uso legítimo.</p>
+</section>
+<section id="dataset" class="level3">
+<h3 class="anchored" data-anchor-id="dataset">Dataset</h3>
+<p>Los datos que provienen del Índice de Uso Justo de la Oficina de Derechos de Autor de EE.UU.<br>
+Dos archivos son considerados fair_use_cases.csv y fair_use_findings.csv. * Fuente de datos: <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-08-29/readme.md">link</a> * Dominio de datos: <a href="https://www.copyright.gov/fair-use/index.html">link</a></p>
+<section id="diccionario-de-datos" class="level4">
+<h4 class="anchored" data-anchor-id="diccionario-de-datos">Diccionario de datos</h4>
+<p><strong>fair_use_cases</strong> * case: character The name and number of the case. * year: integer The year in which the case was decided. * court: character The court in which the ruling was made. * jurisdiction: character The jurisdiction of that court. * categories: character A comma- or semicolon-separated list of categories to which the case belongs. These have not been normalized. * outcome: character A string describing the outcome of the case. * fair_use_found : logical Whether fair use was found by the court. FALSE might sometimes indicate a more complicated finding.</p>
+<p><strong>fair_use_findings</strong> * title character The title of the case. * case_number character The case number or numbers of the case. * year character The year in which the finding was made (or findings were made). * court character The court or courts involved. * key_facts character The key facts of the case. * issue character A brief description of the fair use issue. * holding character The decision of the court in paragraph form. * tags character Comma- or semicolon-separated tags for this case. * outcome character A brief description of the outcome of the case. These fields have not been normalized.</p>
+<div class="cell" data-execution_count="1">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importamos librerias</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>pd.set_option(<span class="st">'display.max_colwidth'</span>, <span class="va">None</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mysql.connector</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sqlalchemy <span class="im">import</span> create_engine</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pymysql</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.io <span class="im">as</span> pio</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>pio.renderers.default <span class="op">=</span> <span class="st">'iframe'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell" data-execution_count="2">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Leemos archivos extraidos Tidy Tuesday</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>fair_use_cases_df <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-08-29/fair_use_cases.csv'</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>fair_use_findings_df <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-08-29/fair_use_findings.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell" data-execution_count="3">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Archivo fair_use_cases </span><span class="ch">\n</span><span class="st">'</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(fair_use_cases_df.info())</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>fair_use_cases_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Archivo fair_use_cases 
+
+&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 251 entries, 0 to 250
+Data columns (total 7 columns):
+ #   Column          Non-Null Count  Dtype 
+---  ------          --------------  ----- 
+ 0   case            251 non-null    object
+ 1   year            251 non-null    int64 
+ 2   court           251 non-null    object
+ 3   jurisdiction    251 non-null    object
+ 4   categories      251 non-null    object
+ 5   outcome         251 non-null    object
+ 6   fair_use_found  251 non-null    bool  
+dtypes: bool(1), int64(1), object(5)
+memory usage: 12.1+ KB
+None</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">case</th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">court</th>
+<th data-quarto-table-cell-role="th">jurisdiction</th>
+<th data-quarto-table-cell-role="th">categories</th>
+<th data-quarto-table-cell-role="th">outcome</th>
+<th data-quarto-table-cell-role="th">fair_use_found</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>De Fontbrune v. Wofsy, 39 F.4th 1214 (9th Cir. 2022)</td>
+<td>2022</td>
+<td>9th Circuit</td>
+<td>9th Circuit</td>
+<td>Education/Scholarship/Research; Photograph</td>
+<td>Fair use not found</td>
+<td>False</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Sedlik v. Von Drachenberg, No. CV 21-1102 (C.D. Cal. May 31, 2022)</td>
+<td>2022</td>
+<td>C.D. Cal.</td>
+<td>9th Circuit</td>
+<td>Painting/Drawing/Graphic; Photograph</td>
+<td>Preliminary finding; Fair use not found</td>
+<td>False</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Sketchworks Indus. Strength Comedy, Inc. v. Jacobs, No. 19-CV-7470-LTS-VF (S.D.N.Y. May 12, 2022)</td>
+<td>2022</td>
+<td>S.D.N.Y.</td>
+<td>2nd Circuit</td>
+<td>Film/Audiovisual; Music; Parody/Satire; Review/Commentary</td>
+<td>Fair use found</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Am. Soc'y for Testing &amp; Materials v. Public.Resource.Org, Inc., No. 13-cv-1215 (D.D.C. Mar. 31, 2022)</td>
+<td>2022</td>
+<td>D.D.C.</td>
+<td>District of Columbia Circuit</td>
+<td>Education/Scholarship/Research; Textual Work; Used in government proceeding</td>
+<td>Mixed Result</td>
+<td>False</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Yang v. Mic Network Inc., Nos. 20-4097-cv, 20-4201-cv (2d Cir. Mar. 29, 2022)</td>
+<td>2022</td>
+<td>2d Circuit</td>
+<td>2nd Circuit</td>
+<td>News reporting; Photography</td>
+<td>Fair use found</td>
+<td>True</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="4">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fair_use_cases_df.describe(include<span class="op">=</span><span class="st">'all'</span>).T</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">count</th>
+<th data-quarto-table-cell-role="th">unique</th>
+<th data-quarto-table-cell-role="th">top</th>
+<th data-quarto-table-cell-role="th">freq</th>
+<th data-quarto-table-cell-role="th">mean</th>
+<th data-quarto-table-cell-role="th">std</th>
+<th data-quarto-table-cell-role="th">min</th>
+<th data-quarto-table-cell-role="th">25%</th>
+<th data-quarto-table-cell-role="th">50%</th>
+<th data-quarto-table-cell-role="th">75%</th>
+<th data-quarto-table-cell-role="th">max</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">case</td>
+<td>251</td>
+<td>251</td>
+<td>De Fontbrune v. Wofsy, 39 F.4th 1214 (9th Cir. 2022)</td>
+<td>1</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">year</td>
+<td>251.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>2003.697211</td>
+<td>18.226902</td>
+<td>1841.0</td>
+<td>1993.5</td>
+<td>2009.0</td>
+<td>2017.0</td>
+<td>2022.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">court</td>
+<td>251</td>
+<td>53</td>
+<td>S.D.N.Y.</td>
+<td>47</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">jurisdiction</td>
+<td>251</td>
+<td>14</td>
+<td>2nd Circuit</td>
+<td>98</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">categories</td>
+<td>251</td>
+<td>155</td>
+<td>Education/Scholarship/Research; Textual work</td>
+<td>16</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">outcome</td>
+<td>251</td>
+<td>16</td>
+<td>Fair use not found</td>
+<td>102</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">fair_use_found</td>
+<td>251</td>
+<td>2</td>
+<td>False</td>
+<td>150</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="5">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Archivo fair_use_findings </span><span class="ch">\n</span><span class="st">'</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(fair_use_findings_df.info())</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>fair_use_findings_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Archivo fair_use_findings 
+
+&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 251 entries, 0 to 250
+Data columns (total 9 columns):
+ #   Column       Non-Null Count  Dtype 
+---  ------       --------------  ----- 
+ 0   title        251 non-null    object
+ 1   case_number  251 non-null    object
+ 2   year         251 non-null    object
+ 3   court        251 non-null    object
+ 4   key_facts    251 non-null    object
+ 5   issue        251 non-null    object
+ 6   holding      251 non-null    object
+ 7   tags         251 non-null    object
+ 8   outcome      251 non-null    object
+dtypes: object(9)
+memory usage: 17.8+ KB
+None</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">title</th>
+<th data-quarto-table-cell-role="th">case_number</th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">court</th>
+<th data-quarto-table-cell-role="th">key_facts</th>
+<th data-quarto-table-cell-role="th">issue</th>
+<th data-quarto-table-cell-role="th">holding</th>
+<th data-quarto-table-cell-role="th">tags</th>
+<th data-quarto-table-cell-role="th">outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>De Fontbrune v. Wofsy</td>
+<td>39 F.4th 1214 (9th Cir. 2022)</td>
+<td>2022</td>
+<td>United States Court of Appeals for the Ninth Circuit</td>
+<td>Plaintiffs own the rights to a catalogue comprised of 16,000 photographs of Pablo Picasso’s work, which was originally compiled by Picasso’s friend in 1932 (the “Zervos Catalogue”). In 1995, after obtaining permission from Picasso’s estate to publish a work illustrating and describing works by Picasso, Defendants Alan Wofsy and his company Alan Wofsy &amp; Associates began publishing The Picasso Project—–a series of volumes reproducing images of Picasso’s work, including 1,492 photographs from the Zervos Catalogue. Plaintiffs sued for copyright infringement. A French court held the photographs were protected by copyright because they “added creative features through deliberate choices of lighting, the lens, filters, [and] framing or angle of view.” In 2001, Plaintiffs obtained a judgment in France that subjected Defendants to damages for any further acts of infringement. In 2012, after discovering copies of The Picasso Project in a French bookstore, Plaintiffs enforced their judgment in France and were awarded €2 million. Plaintiffs sought recognition of the judgment in the U.S. courts. The district court granted summary judgment for Defendants, determining that the French judgment was “repugnant to U.S. public policy protecting free expression” because it failed to provide a fair use defense. Plaintiffs appealed; and Defendants cross-appealed on other defenses.</td>
+<td>Whether reproduction of photographs documenting artwork in a reference book that was sold commercially is a fair use.</td>
+<td>The panel held that the first factor, the purpose and character of the use, weighed against fair use because Defendants conceded that The Picasso Project was a commercial venture and the use at issue—reproduction of the photographs in a book illustrating Picasso’s works—was not transformative. Specifically, the court noted that Defendants’ use “did not serve an ‘entirely different function’ than the originals,” but had overlapping purposes, and the insertion of informative captions did not “necessarily” transform the works. The second factor, the nature of the copyrighted work, did not favor fair use because, although the works were published and documentary in nature, the French court had concluded that the photographs exhibited creative elements. The court determined that the third factor, the amount and substantiality of the work used, weighed against fair use because Defendants failed to demonstrate that “copying the entirety of each photograph was necessary.” The fourth factor, the effect of the use upon the potential market for or value of the copyrighted work, also weighed against fair use because there is a presumption of market harm when the use is commercial and non-transformative. Although Defendants presented evidence that auction prices for the Zervos Catalogue increased while The Picasso Project was on the market, Defendants had not provided evidence that “widespread appropriation” of the works would not harm the market for the photographs. Weighing all the factors, the court had “serious doubts” that fair use would protect Defendants’ use, and, accordingly, granted summary judgment to Plaintiffs on the public policy defense.</td>
+<td>Education/Scholarship/Research; Photograph</td>
+<td>Fair use not found</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Sedlik v. Von Drachenberg</td>
+<td>No. CV 21-1102, 2022 WL 2784818 (C.D. Cal. May 31, 2022)</td>
+<td>2022</td>
+<td>United States District Court for the Southern District of New York</td>
+<td>Plaintiff Jeffrey Sedlik is a photographer who created an iconic portrait of musician Miles Davis, which he has licensed for various uses (the “Portrait”). Defendant Katherine Von Drachenberg, professionally known as Kat Von D, is a celebrity tattooist. In 2017, Kat Von D inked a tattoo on the arm of a friend, Blake Farmer, as a gift. Farmer chose the Portrait as the reference image for his tattoo. Kat Von D traced a printout of the Portrait to create a line drawing and stencil to transfer to Farmer’s arm, then completed the tattoo freehand. Kat Von D and the tattoo shop hosting her both posted a photograph of Kat Von D tattooing Farmer’s arm with the Portrait in the background, as well as a photograph of the finished tattoo. Kat Von D also posted a short video of herself inking the tattoo. Sedlik sued and moved for summary judgment on his claim of copyright infringement. Defendants moved for summary judgment, asserting fair use.</td>
+<td>Whether use of a photograph as the reference image for a realistic tattoo is fair use.</td>
+<td>Considering the first fair use factor, the purpose and character of the use, the court found triable issues as to the transformativeness and commercial nature of the work. The court rejected Kat Von D’s arguments that the tattoo was transformative because of Farmer’s personal connection to the image in the Portrait and by nature of it being permanently imprinted on Farmer’s body. The court concluded that a jury should determine whether the visual differences between the Portrait and the tattoo, such as additional shading and the elimination of the black background, are significant enough to render the tattoo transformative. The court also stated that a jury should decide whether Kat Von D’s use of the work was commercial, noting that she did not charge Farmer for the tattoo but could have derived an indirect economic benefit from promotion of the tattoo on social media. The court found that the second factor, the nature of the copyrighted work, favored fair use because although the Portrait is creative, it was published several decades ago and has been widely disseminated. The third factor, the amount and substantiality of the portion used, weighed against fair use because Kat Von D chose to copy certain expressive elements of the Portrait that were not necessary to achieve her stated purpose of expressing “a sentiment of melancholy.” On the fourth factor, the effect of the use upon the potential market for or value of the copyrighted work, while the court concluded the tattoo was not a substitute in the primary market for the Portrait, it found that Sedlik raised a triable issue as to whether a future market exists for licensing the Portrait for use in creating tattoos. Because the court found triable issues concerning the statutory factors, it declined to address a non-statutory factor raised by defendants—“fundamental rights of bodily integrity and personal expression”—and concluded that fair use in this case should be decided by a jury.</td>
+<td>Painting/Drawing/Graphic; Photograph</td>
+<td>Preliminary finding; Fair use not found</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Sketchworks Indus. Strength Comedy, Inc. v. Jacobs</td>
+<td>No. 19-CV-7470-LTS-VF, 2022 U.S. Dist. LEXIS 86331 (S.D.N.Y. May 12, 2022)</td>
+<td>2022</td>
+<td>United States District Court for the Southern District of New York</td>
+<td>Plaintiff Sketchworks Industrial Strength Comedy, Inc. (“Sketchworks”) is a sketch comedy company that created and owns a copyright in Vape, a stage musical that is an alleged parody of the theatrical work and film, Grease. Vape follows the same characters along roughly the same story-arc and in the same setting as Grease and incorporates portions of the film’s music. Defendants are the trustees for the individual trusts of the co-authors of Grease. Just before Vape was scheduled to be performed, Defendants sent Sketchworks and the theater where Vape was to be performed cease and desist letters, and the performances were cancelled. Sketchworks brought an action against Defendants seeking a declaratory judgment that Vape constitutes fair use of Grease, asserting that Vape is a parody that uses millennial slang, pop culture references, and exaggeration to comment on Grease and criticize its misogynistic and sexist elements. Defendants disputed that Vape is a parody and asserted that it infringes their copyright in Grease. The parties cross- moved for judgment on the pleadings.</td>
+<td>Whether the use of protected elements, including music, plot, characters, dialogue, and setting, from a theatrical work and film to create a parodic stage musical is fair use.</td>
+<td>The court found that the first factor, the purpose and character of the use, favored fair use because Vape is a parody of Grease and is therefore transformative. Critical to this determination, the court found that Vape juxtaposed “familiar elements from Grease, such as the main characters and the plot arc, with alterations to the script and song lyrics” to highlight the experiences of Grease’s female characters and “comment on how misogynistic tendencies have both evolved since Grease was developed and remain the same.” The second factor, the nature of the copyrighted work, disfavored fair use because Grease’s creative expression fell “within the core of the copyright’s protective purposes.” The court, however, declined to give this factor much weight, reasoning that parodies typically copy publicly known, expressive works. The third factor, the amount and substantiality of the use, weighed in favor of fair use. Although Vape took “substantial elements” from Grease, the court found that “the taking was not excessive” because use of those elements was necessary to achieve Vape’s parodic purpose and communicate its criticism of certain aspects of Grease. The fourth factor, the effect of the use on the potential market for or value of the copyrighted work, also weighed in favor of fair use because any potential harm to Grease’s market value for derivatives was likely “minimal.” While Vape updated some of the language and cultural references from Grease, the court found that Vape “cannot be reasonably viewed as a derivative ‘sequel to, . . . or updated remake, of Grease,’” because its updates were done “in a spirit of mockery.” Further, the court commented that any effect on the demand for derivatives attributable to Vape’s “critical nature” is not remediable under copyright law. Weighing the four factors together, the court concluded that Vape constitutes a fair use of Grease and granted Sketchworks’ motion for judgment on the pleadings.</td>
+<td>Film/Audiovisual; Music; Parody/Satire; Review/Commentary</td>
+<td>Fair use found</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Am. Soc'y for Testing &amp; Materials v. Public.Resource.Org, Inc.</td>
+<td>No. 13-cv-1215 (TSC), 2022 U.S. Dist. LEXIS 60922 (D.D.C. Mar. 31, 2022)</td>
+<td>2022</td>
+<td>United States District Court for the District of Columbia</td>
+<td>Defendant Public.Resource.Org, Inc., a non-profit organization, has a mission to make the “law and other government materials more widely available so that people, businesses, and organizations can easily read and discuss [the] laws and the operations of government.” Plaintiffs consist of three non-profit standards-developing organizations: (1) “ASTM,” which is focused on industry-related technical and safety standards; (2) “NFPA,” which is focused on safety standards; and (3) “ASHRAE,” which is focused on construction-related standards. Plaintiffs own copyrights in various “voluntary consensus standards,” which are developed by numerous subject matter experts under Plaintiffs’ guidance. Plaintiffs sell PDFs and hard copies of their standards and maintain reading rooms for viewing the standards. Defendant purchased hard copies of Plaintiffs’ standards and, without authorization, scanned and made digital, verbatim, copies freely available online to the public. This case concerns 191 ASTM standards, 23 NFPA standards, and 3 ASHRAE standards that Defendant claims have been incorporated by reference into federal law. Plaintiffs brought copyright, trademark, and unfair competition claims; Defendant countersued, seeking declaratory judgment. The parties filed motions for summary judgment. In 2017, the district court found that all factors weighed against fair use. On appeal, the court of appeals reversed in part and remanded the case back to the district court without a detailed discussion of the fair use factors for additional factual development. On remand, both parties again moved for summary judgment.</td>
+<td>Whether it is fair use to make available online for free a verbatim copy of privately developed standards, which have been incorporated by reference into law, without obtaining authorization from the copyright owner.</td>
+<td>As directed by the court of appeals, the district court conducted a four-step fair use analysis for each of the 217 allegations of infringement, concluding that Defendant’s reproduction of 184 standards was fair use, reproduction of 32 standards was not fair use, and that portions of the reproduction of 1 standard was fair use. For all 217 standards, the court found that the fourth factor, the effect of the use upon the potential market for or value of the work, favored fair use. Having found that Defendant’s use was noncommercial, the court determined that Plaintiffs did not provide sufficient evidence to show some meaningful likelihood of future harm exists. The court noted that it was “less deferential” to Plaintiffs’ “conclusory opinions” about market harm given that, during the elapsed time since the alleged infringement and the commencement of the litigation Plaintiffs could have provided “economic data and analysis” supporting their arguments. The court also found that Defendant’s reproductions did not have a “substantially adverse impact on the potential market for the originals.” Regarding the 184 standards that the court found Defendant reproduced fairly, the court determined that 153 were incorporated by reference into law and that the other 31 were identical in text to standards incorporated by reference. The court concluded that the first factor, the purpose and character of the use, generally favored fair use because Defendant did not “stand to profit” from the reproduction and that its purpose was “to inform the public about the law and facilitate public debate.” The court noted that Defendant’s use qualified as one that “furthere[d] the purposes” of fair use, and generally provided information “essential for a private entity to comprehend its legal duties,” which weighed “heavily in favor” of fair use. In assessing the second factor, the nature of the copyrighted work, the court considered that “the express text of the law falls plainly outside the realm of copyright protection” and determined that consequently the standards incorporated by reference “are, at best, at the outer edge of ‘copyright's protective purposes.’” Thus, this factor weighed “heavily in favor” of fair use. The court explained that the 184 standards were incorporated into law “without limitation” such that “the consequence of the incorporation by reference is virtually indistinguishable from a situation in which the standard had been expressly copied into law.” The third factor, the amount and substantiality of the portion used, also favored fair use as the court found that “a greater amount of the standard's text might be fairly reproduced” because the incorporating regulations did “not specify” whether certain provisions, or the entire text, of the standards were incorporated by reference into law and did not indicate which specific provisions were “relevant for regulatory guidance.” Balancing the factors, the court found fair use and denied Plaintiffs’ motion for summary judgment regarding these 184 standards. Regarding the 32 standards that the court found were not reproduced fairly, the court noted that these standards were not shown to be incorporated by reference into law and “differ[ed] in substantive ways from those incorporated by reference into law.” Discussing the first factor, the court found that this factor weighed slightly against fair use because Defendant’s purpose of “inform[ing] the public about the law” was not “significantly furthered” by publishing standards with substantive differences from the standards that were incorporated by reference. The second factor weighed against fair use because there was no evidence showing that the standards were incorporated into law. And, although the standards were more factual than creative, the court concluded that these works “fall more squarely within the realm of copyright protection” than standards incorporated into law. The third factor weighed against fair use, as Defendant’s purpose of informing the public about the law “could be achieved with a paraphrase or summary.” The court also noted that “[i]ncorporating one standard by reference does not justify posting provisions of a different version that has not been incorporated into law.” Balancing these factors, the court did not find fair use and denied Defendant’s motion for summary judgment regarding these 32 standards. Regarding the 1 standard where the court found that portions of the reproduced standard were used fairly, only the parts incorporated by reference into a regulation were found to be fair use. In its second factor analysis, distinguishing the portions not incorporated into law, the court found that Defendant’s “wholesale reproduction” of the standard was “harder to justify” because only parts of the standard were incorporated into law.</td>
+<td>Education/Scholarship/Research; Textual Work; Used in government proceeding</td>
+<td>Mixed Result</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Yang v. Mic Network Inc.</td>
+<td>Nos. 20-4097-cv(L), 20-4201-cv (XAP), 2022 U.S. App. LEXIS 8195 (2d Cir. Mar. 29, 2022)</td>
+<td>2022</td>
+<td>United States Court of Appeals for the Second Circuit</td>
+<td>Plaintiff Stephen Yang (“Yang”) licensed a photograph he took of Dan Rochkind (“Rochkind”) to the New York Post, which ran the photograph in an article about Rochkind entitled “Why I Won’t Date Hot Women Anymore.” Defendant Mic Network, Inc. (“Mic”) posted its own article entitled “Twitter Is Skewering the 'New York Post' for a Piece on Why a Man ‘Won't Date Hot Women’.” The Mic article included a screenshot of the Post article that captured the headline and a portion of Yang’s photograph. Mic did not obtain a license to use the photograph. In response, Yang sued Mic for copyright infringement, and Mic moved to dismiss, asserting fair use. The district court granted Mic’s motion, concluding that its use of Yang’s photograph was fair use. Yang appealed the order and judgment.</td>
+<td>Whether using a screenshot from an article, including part of a photograph, to report on and criticize the article constitutes fair use of the photograph.</td>
+<td>On appeal, the court decided that the first factor, the purpose and character of the use, weighed in favor of fair use. As an initial matter, the panel held that it was not error for the district to decide transformativeness on a motion to dismiss in this case because the only two pieces of evidence needed were the original and secondary works. The court held that, in addition to identifying the subject of Mic’s criticism, Mic, also transformed the photograph by critiquing and providing commentary on the Post article. Mic did not use the photograph “merely as an illustrative aid,” and thus its use was for different purpose than the original. The second factor, the nature of the copyrighted work, had limited weight in the court’s analysis after it held that the use was transformative and thus “d[id] not counsel against a finding of fair use.” Likewise, the third factor, the amount and substantiality of the work used, did not disfavor fair use as the court agreed with the district court’s conclusion that Mic’s use of the image was reasonable to satirize the Post article. The court determined that the fourth factor, the effect of the use on the potential market for or value of the work, also favored fair use. The court concluded that Mic’s screenshot was not a competing substitute for Yang’s work because Mic did not simply republish the photograph, but instead used a screenshot consisting of a “significantly” cropped version of the work along with the Post headline. Further, Yang failed to plausibly allege that a market exists for “photographs that happen to be featured in news articles criticizing the original article in which the photograph appeared.” Weighing the factors together, the court concluded that the district court properly dismissed Yang’s copyright infringement claim on fair use grounds.</td>
+<td>News Reporting; Photography</td>
+<td>Fair use found</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell" data-scrolled="true" data-execution_count="6">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>fair_use_findings_df.describe(include<span class="op">=</span><span class="st">'all'</span>).T</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">count</th>
+<th data-quarto-table-cell-role="th">unique</th>
+<th data-quarto-table-cell-role="th">top</th>
+<th data-quarto-table-cell-role="th">freq</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">title</td>
+<td>251</td>
+<td>248</td>
+<td>Bouchat v. Balt. Ravens Ltd. P’ship,</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">case_number</td>
+<td>251</td>
+<td>251</td>
+<td>39 F.4th 1214 (9th Cir. 2022)</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">year</td>
+<td>251</td>
+<td>56</td>
+<td>2020</td>
+<td>17</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">court</td>
+<td>251</td>
+<td>60</td>
+<td>United States District Court for the Southern District of New York</td>
+<td>48</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">key_facts</td>
+<td>251</td>
+<td>251</td>
+<td>Plaintiffs own the rights to a catalogue comprised of 16,000 photographs of Pablo Picasso’s work, which was originally compiled by Picasso’s friend in 1932 (the “Zervos Catalogue”). In 1995, after obtaining permission from Picasso’s estate to publish a work illustrating and describing works by Picasso, Defendants Alan Wofsy and his company Alan Wofsy &amp; Associates began publishing The Picasso Project—–a series of volumes reproducing images of Picasso’s work, including 1,492 photographs from the Zervos Catalogue. Plaintiffs sued for copyright infringement. A French court held the photographs were protected by copyright because they “added creative features through deliberate choices of lighting, the lens, filters, [and] framing or angle of view.” In 2001, Plaintiffs obtained a judgment in France that subjected Defendants to damages for any further acts of infringement. In 2012, after discovering copies of The Picasso Project in a French bookstore, Plaintiffs enforced their judgment in France and were awarded €2 million. Plaintiffs sought recognition of the judgment in the U.S. courts. The district court granted summary judgment for Defendants, determining that the French judgment was “repugnant to U.S. public policy protecting free expression” because it failed to provide a fair use defense. Plaintiffs appealed; and Defendants cross-appealed on other defenses.</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">issue</td>
+<td>251</td>
+<td>248</td>
+<td>Whether a university’s electronic distribution of unlicensed copyrighted works to students is a fair use.</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">holding</td>
+<td>251</td>
+<td>251</td>
+<td>The panel held that the first factor, the purpose and character of the use, weighed against fair use because Defendants conceded that The Picasso Project was a commercial venture and the use at issue—reproduction of the photographs in a book illustrating Picasso’s works—was not transformative. Specifically, the court noted that Defendants’ use “did not serve an ‘entirely different function’ than the originals,” but had overlapping purposes, and the insertion of informative captions did not “necessarily” transform the works. The second factor, the nature of the copyrighted work, did not favor fair use because, although the works were published and documentary in nature, the French court had concluded that the photographs exhibited creative elements. The court determined that the third factor, the amount and substantiality of the work used, weighed against fair use because Defendants failed to demonstrate that “copying the entirety of each photograph was necessary.” The fourth factor, the effect of the use upon the potential market for or value of the copyrighted work, also weighed against fair use because there is a presumption of market harm when the use is commercial and non-transformative. Although Defendants presented evidence that auction prices for the Zervos Catalogue increased while The Picasso Project was on the market, Defendants had not provided evidence that “widespread appropriation” of the works would not harm the market for the photographs. Weighing all the factors, the court had “serious doubts” that fair use would protect Defendants’ use, and, accordingly, granted summary judgment to Plaintiffs on the public policy defense.</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">tags</td>
+<td>251</td>
+<td>207</td>
+<td>Second Circuit; Education/Scholarship/Research; Textual work</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">outcome</td>
+<td>251</td>
+<td>22</td>
+<td>Fair use not found</td>
+<td>99</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Mediante la lectura de los archivos, se observan 251 registros en cada archivo. Se observa diferencias en proporciones en la variable outcome. Por lo que hay inconsistencia que se deberà analizar para relacionar los archivos. * <strong>fair_use_cases_df</strong>: presenta 251 casos judiciales que corresponden 1841 a 2022. 14 juridicciones y 53 cortes. 155 categorìas que no estàn normalizadas. * <strong>fair_use_findings_df</strong>: presenta 251 casos judiciales. 60 cortes. 22 outcome que no estàn normalizados.</p>
+<p>Estos archivos se guardaràn en una base de datos mysql, para disponer de un dataset màs limpio.</p>
+</section>
+<section id="cargamos-los-archivos-a-base-de-datos-mysql" class="level4">
+<h4 class="anchored" data-anchor-id="cargamos-los-archivos-a-base-de-datos-mysql">1- Cargamos los archivos a base de datos Mysql</h4>
+<div class="cell" data-execution_count="7">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos objeto de conexion a base de datos</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>mydb <span class="op">=</span> mysql.connector.<span class="ex">connect</span>(</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    host <span class="op">=</span> <span class="st">"localhost"</span>,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    user <span class="op">=</span> <span class="st">"root"</span>,</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    password <span class="op">=</span> <span class="st">"Ejercicio2024!"</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(mydb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;mysql.connector.connection_cext.CMySQLConnection object at 0x7f51d969ed40&gt;</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="8">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Funciones ùtiles para trabajar con base de datos</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> create_database(cursor,DB_NAME):</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>        cursor.execute(</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>            <span class="st">"CREATE DATABASE </span><span class="sc">{}</span><span class="st"> DEFAULT CHARACTER SET 'utf8'"</span>.<span class="bu">format</span>(DB_NAME))</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> mysql.connector.Error <span class="im">as</span> err:</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Failed creating database: </span><span class="sc">{}</span><span class="st">"</span>.<span class="bu">format</span>(err))</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>        exit(<span class="dv">1</span>)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> read_query(connection, query):</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    cursor <span class="op">=</span> connection.cursor()</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>        cursor.execute( query )</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>        names <span class="op">=</span> [ x[<span class="dv">0</span>] <span class="cf">for</span> x <span class="kw">in</span> cursor.description]</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>        rows <span class="op">=</span> cursor.fetchall()</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> pd.DataFrame( rows, columns<span class="op">=</span>names)</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">finally</span>:</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> cursor <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>            cursor.close()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell" data-execution_count="9">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos base de datos</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>mycursor <span class="op">=</span> mydb.cursor()</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>create_database(mycursor, <span class="st">"Fair_use"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Failed creating database: 1007 (HY000): Can't create database 'Fair_use'; database exists</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="10">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Llamamos a la base de datos</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>mycursor.execute(<span class="st">"USE Fair_use"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell" data-execution_count="11">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>mycursor.execute(<span class="st">"DROP TABLE `fair_use_cases`"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell" data-execution_count="12">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos tabla para fair_use_cases` con la que estaremos màs trabajando</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>mycursor.execute(<span class="st">"CREATE TABLE `fair_use_cases` (`id` INT AUTO_INCREMENT PRIMARY KEY, `case` VARCHAR(255), `year` SMALLINT(255), `court` VARCHAR(255) ,`jurisdiction` VARCHAR(255), `categories` VARCHAR(255), `outcome` VARCHAR(255), `fair_use_found` VARCHAR(255))ENGINE=InnoDB"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell" data-execution_count="14">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Datos de conexiòn</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>hostname<span class="op">=</span> <span class="st">"localhost"</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>database<span class="op">=</span> <span class="st">"Fair_use"</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>username<span class="op">=</span> <span class="st">"root"</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>password<span class="op">=</span> <span class="st">"Ejercicio2024!"</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>engine <span class="op">=</span> create_engine(<span class="st">"mysql+pymysql://</span><span class="sc">{user}</span><span class="st">:</span><span class="sc">{pw}</span><span class="st">@</span><span class="sc">{host}</span><span class="st">/</span><span class="sc">{db}</span><span class="st">"</span>.<span class="bu">format</span>(host<span class="op">=</span>hostname, db<span class="op">=</span>database, user<span class="op">=</span>username, pw<span class="op">=</span>password))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell" data-execution_count="15">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insertamos registros a fair_use_cases</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>fair_use_cases_df.to_sql(<span class="st">'fair_use_cases'</span>, con<span class="op">=</span>engine, if_exists<span class="op">=</span><span class="st">'append'</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos tabla, que hay que normalizar fair_use_findings</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>fair_use_findings_df.to_sql(<span class="st">'fair_use_findings'</span>, con<span class="op">=</span>engine, if_exists<span class="op">=</span><span class="st">'replace'</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<pre><code>251</code></pre>
+</div>
+</div>
+</section>
+<section id="primeras-exploraciòn-de-los-datos" class="level4">
+<h4 class="anchored" data-anchor-id="primeras-exploraciòn-de-los-datos">2 - Primeras exploraciòn de los datos</h4>
+<p><strong>¿Cuàles son los tipos de casos judiciales determinados por los tribunales de EE.UU?</strong></p>
+<p>Se analiza la variable fair_use_found y outcome.</p>
+<div class="cell" data-execution_count="28">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generamos query </span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>query <span class="op">=</span> <span class="st">"""</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="st">SELECT  fair_use_found, count(*) Count </span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="st">FROM fair_use_cases </span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="st">GROUP BY fair_use_found</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="st">ORDER BY COUNT DESC</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> read_query(mydb, query)</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="28">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">fair_use_found</th>
+<th data-quarto-table-cell-role="th">Count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>0</td>
+<td>150</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1</td>
+<td>101</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="19">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gràfico para fair_use_found</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.pie(df, values<span class="op">=</span><span class="st">'count'</span>, names<span class="op">=</span><span class="st">'fair_use_found'</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>fig.update_traces(textposition<span class="op">=</span><span class="st">'inside'</span>)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>fig.update_layout(uniformtext_minsize<span class="op">=</span><span class="dv">12</span>, uniformtext_mode<span class="op">=</span><span class="st">'hide'</span>)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>fig.update_layout(title_text<span class="op">=</span><span class="st">'Porcentaje de casos judiciales segùn "uso legitimo" (fair use found) determinado por los tribunales'</span>)</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<iframe scrolling="no" width="100%" height="545px" src="iframe_figures/figure_19.html" frameborder="0" allowfullscreen=""></iframe>
+</div>
+</div>
+<div class="cell" data-execution_count="24">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># llamamos a la tabla fair_use_case y la convertimos en dataframe para trabajar màs comodos</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>query <span class="op">=</span> <span class="st">"""</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="st">SELECT *</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="st">FROM fair_use_cases </span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>fair_use_cases_df <span class="op">=</span> read_query(mydb, query)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell" data-execution_count="25">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Histograma de años</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>ig <span class="op">=</span> px.histogram(fair_use_cases_df, x<span class="op">=</span><span class="st">"year"</span>, color<span class="op">=</span><span class="st">"fair_use_found"</span>)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>fig.update_traces(textposition<span class="op">=</span><span class="st">'inside'</span>)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>fig.update_layout(uniformtext_minsize<span class="op">=</span><span class="dv">12</span>, uniformtext_mode<span class="op">=</span><span class="st">'hide'</span>)</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>fig.update_layout(title_text<span class="op">=</span><span class="st">'Distribuciòn de casos judiciales segùn año y "uso legitimo" (fair use found) determinado por los tribunales'</span>)</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<iframe scrolling="no" width="100%" height="545px" src="iframe_figures/figure_25.html" frameborder="0" allowfullscreen=""></iframe>
+</div>
+</div>
+<div class="cell" data-execution_count="26">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gràfico de barra para outcome</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>query <span class="op">=</span> <span class="st">"""</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="st">SELECT outcome, count(*) count</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="st">FROM fair_use_cases </span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="st">GROUP BY outcome</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="st">ORDER BY COUNT DESC</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.bar(read_query(mydb, query),x<span class="op">=</span><span class="st">'outcome'</span>, y<span class="op">=</span><span class="st">'count'</span>)</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>fig.update_layout(title_text<span class="op">=</span><span class="st">'Cantidad de casos judiciales segùn descripciòn determinada (outcome) por los tribunales'</span>)</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<iframe scrolling="no" width="100%" height="545px" src="iframe_figures/figure_26.html" frameborder="0" allowfullscreen=""></iframe>
+</div>
+</div>
+<p>De los 251 casos judiciales de <code>fair_use_cases</code> * 40,2% casos fueron determinados de uso legitimo por los tribunales entre 1841 a 2022. * Desde el 2010 se observa màs casos judiciales determinados de uso legitimos. * Hay que normalizar la variable outcome.</p>
+<p><strong>¿Cuàles son las categorìas de casos judiciales explorados por los tribunales de EE.UU ?</strong></p>
+<p>Este campo no esta normalizado por ello se identifican 155 categorìas. Vamos a identificar los Top categorias y personalizar en las categorìas relacionadas a Internet/Digitization.</p>
+<div class="cell" data-execution_count="29">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exploramos el dataframe asociado a fair_use_case</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>fair_use_cases_df[<span class="st">'categories'</span>].unique()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="29">
+<pre><code>array(['Education/Scholarship/Research; Photograph',
+       'Painting/Drawing/Graphic; Photograph',
+       'Film/Audiovisual; Music; Parody/Satire; Review/Commentary',
+       'Education/Scholarship/Research; Textual Work; Used in government proceeding',
+       'News reporting; Photography',
+       'Painting/Drawing/Graphic; Parody/Satire',
+       'Internet/Digitization; News Reporting; Photograph',
+       'Internet/Digitization; Textual Work',
+       'Educational/Scholarship/Research; Internet/Digitization; Textual Work',
+       'Internet/Digitization; Photograph; Review/Commentary',
+       'Parody/Satire; Review/Commentary; Sculpture; Painting/Drawing/Graphic',
+       'Painting/Drawing/Graphic; Photograph; Unpublished',
+       'Film/Audiovisual; Internet/Digitization; Parody/Satire; Photograph; Sculpture',
+       'Internet/Digitization; Painting/Drawing/Graphic',
+       'Music; Film/Audiovisual', 'Computer Program',
+       'Education/Scholarship/Research; Internet/Digitization; Photograph',
+       'Internet/Digitization; News reporting; Photograph',
+       'Education/Scholarship/Research; Internet/Digitization',
+       'Computer Program; Education/Scholarship/Research; Internet/Digitization',
+       'Painting/Drawing/Graphic; Parody/Satire; Textual work',
+       'News Reporting Photograph;', 'Music',
+       'News Reporting; Photograph; Review/Commentary',
+       'Film/Audiovisual',
+       'Textual Work; Educational/Scholarship/Research; Internet/Digitization',
+       'Photograph; Sculpture',
+       'Computer program; Film/Audiovisual; Painting/Drawing/Graphic',
+       'Education/Scholarship/Research; Music', 'Review/Commentary',
+       'Education/Scholarship/Research; Internet/Digitization; Textual work',
+       'First Circuit; Film/Audiovisual; Music',
+       'Ninth Circuit; Photograph; News Reporting; Film/Audiovisual',
+       'Seventh Circuit; Film/Audiovisual; Music; Review/Commentary',
+       'Second Circuit; Film/Audiovisual; News reporting; Photograph; Review/Commentary',
+       'Ninth Circuit; Internet/Digitization; Review/Commentary; Painting/Drawing/Graphic',
+       'Fourth Circuit, Photograph, Internet/Digitization',
+       'Photograph; Internet/Digitization',
+       'Second Circuit; Photograph; News reporting; Parody/Satire; Review/Commentary',
+       'Ninth Circuit; Photograph',
+       'Ninth Circuit, Photograph, Review/Commentary',
+       'Second Circuit, Internet/Digitization, Music',
+       'Second Circuit, Internet/Digitization, News reporting, Photograph',
+       'Eleventh Circuit, Internet/Digitization, Textual work',
+       'Second Circuit, Photograph, Review/Commentary, Internet/Digitization, News reporting',
+       'Federal Circuit, Sculpture, Photograph',
+       'Film/Audiovisual, Internet/Digitization, Review/Commentary',
+       'Photograph, Review/Commentary', 'Second Circuit; Music',
+       'Internet/Digitization, Film/Audiovisual',
+       'Fourth Circuit; Photograph; Review/Commentary; Internet/Digitization',
+       'Ninth Circuit; Painting/Drawing/Graphic; Textual work',
+       'Second Circuit; Parody/Satire; Textual work',
+       'Textual Work; Education/Scholarship/Research',
+       'Film/audiovisual, Used in government proceeding',
+       'Film/Audiovisual, Format shifting/Space shifting, Internet/Digitization',
+       'Review/Commentary, Internet/Digitization',
+       'Film/Audiovisual, Music', 'Photograph',
+       'Unpublished; Textual work',
+       'Photograph; Education/Scholarship/Research',
+       'Film/Audiovisual; Parody/Satire',
+       'Film/Audiovisual; Format shifting/space shifting',
+       'Second Circuit; Photograph; News reporting; Review/Commentary',
+       'Painting/Drawing/Graphic', 'Photograph; Painting/Drawing/Graphic',
+       'Eleventh Circuit; Education/Scholarship/Research; Photograph; Review/Commentary',
+       'Seventh Circuit; Parody/Satire; Photograph; Review/Commentary',
+       'Education/Scholarship/Research; Format shifting/Space shifting; Internet/Digitization; Textual work',
+       'Textual work; Unpublished',
+       'Film/Audiovisual; Format shifting/Space shifting; Internet/Digitization',
+       'Internet/Digitization; Photograph',
+       'Internet/Digitization; Textual work',
+       'Film/Audiovisual; Parody/Satire; Textual work',
+       'Second Circuit; Textual work; Used in government proceeding; Education/Scholarship/Research',
+       'Format shifting/Space shifting; Internet/Digitization; Textual work',
+       'News reporting; Unpublished', 'Textual work',
+       'Internet/Digitization; Textual work; Used in government proceeding',
+       'Film/Audiovisual; Review/Commentary',
+       'Education/Scholarship/Research; Textual work; Unpublished',
+       'Film/Audiovisual; Painting/Drawing/Graphic',
+       'Film/Audiovisual; Painting/Drawing/Graphic; Photograph',
+       'Education/Scholarship/Research; Textual work',
+       'Film/Audiovisual; Textual work',
+       'Format shifting/Space shifting; News reporting',
+       'Internet/Digitization; Textual work; Unpublished',
+       'News reporting; Photograph; Unpublished',
+       'Education/Scholarship/Research; Film/Audiovisual',
+       'Film/Audiovisual, Parody/Satire', 'News reporting; Photograph',
+       'Education/Scholarship/Research; Internet/Digitization; News reporting; Textual work',
+       'Parody/Satire; Textual work',
+       'Parody/Satire; Review/Commentary; Textual work',
+       'Education/Scholarship/Research; Film/Audiovisual; Painting/Drawing/Graphic',
+       'Music; Parody/Satire',
+       'Internet/Digitization; News reporting; Textual work', 'Sculpture',
+       'Computer program; Education/Scholarship/Research; Internet/Digitization; Textual work',
+       'Education/Scholarship/Research; Painting/Drawing/Graphic; Textual work',
+       'Film/Audiovisual; Music; Textual work', 'Internet; Music',
+       'Education/Scholarship/Research; Review/Commentary; Textual work',
+       'Education/Scholarship/Research; Film/Audiovisual; Music; Photograph; Textual work',
+       'Film/Audiovisual; Music; Review/Commentary',
+       'Films/Audiovisual; Textual work',
+       'Film/Audiovisual; News reporting; Photograph', 'Computer program',
+       'Internet/Digitization; Music',
+       'Internet/Digitization; Parody/Satire; Photograph',
+       'Painting/Drawing/Graphic; Textual work',
+       'Photograph; Review/Commentary; Sculpture',
+       'Film/Audiovisual; Internet/Digitization',
+       'Textual work; Unpublished; Used in government proceeding',
+       'Computer program; Internet/digitization',
+       'Education/Scholarship/Research; Film/Audiovisual; Music; Photograph; Review/Commentary',
+       'Parody/Satire; Photograph; Review/Commentary',
+       'Review/Commentary; Textual work', 'Textual Work',
+       'Film/Audiovisual; News reporting', 'Other visual arts',
+       'Internet/Digitization; Format shifting/Space shifting; Music',
+       'Film/Audiovisual; Music; News reporting',
+       'Education/Scholarship/Research; Film/Audiovisual; Review/Commentary',
+       'Photograph; Review/Commentary; Textual work',
+       'News reporting; Textual Work',
+       'Format shifting/Space shifting; Music',
+       'Parody/Satire; Photograph',
+       'Education/Scholarship/Research; Review/Commentary; Textual work; Unpublished',
+       'Film/Audiovisual; Painting/Drawing/Graphic; Parody/Satire',
+       'Textual work; Used in government proceeding',
+       'Education/Scholarship/Research; Format shifting/Space shifting; Textual work; Unpublished',
+       'Computer program; Internet/Digitization',
+       'Education/Scholarship/Research; Textual work; Used in government proceeding',
+       'Format shifting/Space shifting; News reporting; Review/commentary; Textual work; Unpublished',
+       'Education/Scholarship/Research; Film/Audiovisual; Review/Commentary; Textual work',
+       'Education/Scholarship/Research; Painting/Drawing/Graphic; Review/Commentary; Textual work',
+       'Parody; Review/Commentary; Sculpture',
+       'Computer program; Education/Scholarship/Research',
+       'News Reporting; Review/Commentary; Textual work; Unpublished',
+       'News reporting; Painting/Drawing/Graphic; Textual work',
+       'Film/Audiovisual; Music; Parody/Satire; Unpublished',
+       'Music; Parody/Satire; Review/Commentary',
+       'Painting/Drawing/Graphic; Review/Commentary; Textual work',
+       'Painting/Drawing/Graphic; Photograph; Review/Commentary',
+       'News reporting; Textual work',
+       'News reporting; Textual work; Unpublished', 'News reporting',
+       'Film/Audiovisual; Format shifting/Space shifting',
+       'Film/Audiovisual; Used in government proceeding',
+       'Education/Scholarship/Research; Film/Audiovisual; Format shifting/Space shifting',
+       'Review/Commentary; Music',
+       'Film/Audiovisual; Parody/Satire; Painting/Drawing/Graphic',
+       'Parody/Satire; Painting/Drawing/Graphic',
+       'Education/Research/Scholarship; Textual work'], dtype=object)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="30">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculamos el promedio de casos judiciales para identificar los Top categorias</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>categories_df <span class="op">=</span> fair_use_cases_df[<span class="st">'categories'</span>].value_counts().reset_index()</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Cantidad promedia de casos judiciales por categorìa:"</span>, categories_df[<span class="st">'count'</span>].mean())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Cantidad promedia de casos judiciales por categorìa: 1.6193548387096774</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="31">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Categorias que superan la cantidad promedio de casos judiciales por categorìa"</span>)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>categories_df[categories_df[<span class="st">'count'</span>] <span class="op">&gt;</span> categories_df[<span class="st">'count'</span>].mean()]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Categorias que superan la cantidad promedio de casos judiciales por categorìa</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="31">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">categories</th>
+<th data-quarto-table-cell-role="th">count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Education/Scholarship/Research; Textual work</td>
+<td>16</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Textual work</td>
+<td>9</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Film/Audiovisual; Parody/Satire</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Film/Audiovisual; News reporting</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Painting/Drawing/Graphic; Photograph</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>Computer program</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>Photograph</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>Internet/Digitization; Photograph</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>Film/Audiovisual</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>Painting/Drawing/Graphic</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>Film/Audiovisual; Textual work</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>Film/Audiovisual; Review/Commentary</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>Music</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>Education/Scholarship/Research; Internet/Digitization; Textual work</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>Internet/Digitization; News reporting; Photograph</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>Education/Scholarship/Research; Review/Commentary; Textual work</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16</td>
+<td>Education/Scholarship/Research; Textual work; Unpublished</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">17</td>
+<td>Music; Parody/Satire</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">18</td>
+<td>Education/Scholarship/Research; Review/Commentary; Textual work; Unpublished</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19</td>
+<td>Education/Scholarship/Research; Textual Work; Used in government proceeding</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">20</td>
+<td>Parody/Satire; Textual work</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">21</td>
+<td>Photograph; Sculpture</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">22</td>
+<td>News reporting; Photograph</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">23</td>
+<td>Fourth Circuit, Photograph, Internet/Digitization</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">24</td>
+<td>Textual work; Unpublished</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">25</td>
+<td>Parody/Satire; Photograph</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">26</td>
+<td>Film/Audiovisual; Format shifting/Space shifting; Internet/Digitization</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">27</td>
+<td>Education/Scholarship/Research; Film/Audiovisual; Review/Commentary</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">28</td>
+<td>Film/Audiovisual; Parody/Satire; Textual work</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">29</td>
+<td>Textual Work</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">30</td>
+<td>Second Circuit; Music</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">31</td>
+<td>Film/Audiovisual; News reporting; Photograph</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">32</td>
+<td>Computer Program</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">33</td>
+<td>News reporting; Textual work</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">34</td>
+<td>Film/Audiovisual; Painting/Drawing/Graphic; Photograph</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">35</td>
+<td>Internet/Digitization; Photograph; Review/Commentary</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">36</td>
+<td>Format shifting/Space shifting; News reporting</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">37</td>
+<td>Internet/Digitization; News Reporting; Photograph</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="33">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Seleccionamos los casos de Internet/Digitalizaciòn</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>fair_use_cases_InternetDig_df <span class="op">=</span> fair_use_cases_df.loc[fair_use_cases_df[<span class="st">'categories'</span>].<span class="bu">str</span>.contains(<span class="st">'Internet/Digitization'</span>),]</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Estadisticas descriptivas de casos judiciales asociados a categorìas que contienen Internet/Digitization "</span>)</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>fair_use_cases_InternetDig_df.describe(include<span class="op">=</span><span class="st">'all'</span>). T</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Estadisticas descriptivas de casos judiciales asociados a categorìas que contienen Internet/Digitization </code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="33">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">count</th>
+<th data-quarto-table-cell-role="th">unique</th>
+<th data-quarto-table-cell-role="th">top</th>
+<th data-quarto-table-cell-role="th">freq</th>
+<th data-quarto-table-cell-role="th">mean</th>
+<th data-quarto-table-cell-role="th">std</th>
+<th data-quarto-table-cell-role="th">min</th>
+<th data-quarto-table-cell-role="th">25%</th>
+<th data-quarto-table-cell-role="th">50%</th>
+<th data-quarto-table-cell-role="th">75%</th>
+<th data-quarto-table-cell-role="th">max</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">id</td>
+<td>50.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>67.26</td>
+<td>45.951088</td>
+<td>7.0</td>
+<td>29.5</td>
+<td>56.5</td>
+<td>92.0</td>
+<td>180.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">case</td>
+<td>50</td>
+<td>50</td>
+<td>McGucken v. Newsweek LLC, 19 Civ. 9617 (KPF) (S.D.N.Y. Mar. 21, 2020)</td>
+<td>1</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">year</td>
+<td>50.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>2015.46</td>
+<td>6.141894</td>
+<td>1996.0</td>
+<td>2014.0</td>
+<td>2018.0</td>
+<td>2020.0</td>
+<td>2022.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">court</td>
+<td>50</td>
+<td>21</td>
+<td>S.D.N.Y.</td>
+<td>11</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">jurisdiction</td>
+<td>50</td>
+<td>9</td>
+<td>2nd Circuit</td>
+<td>19</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">categories</td>
+<td>50</td>
+<td>39</td>
+<td>Internet/Digitization; Photograph</td>
+<td>4</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">outcome</td>
+<td>50</td>
+<td>10</td>
+<td>Fair use found</td>
+<td>17</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">fair_use_found</td>
+<td>50</td>
+<td>2</td>
+<td>0</td>
+<td>33</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="34">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>df_gp <span class="op">=</span> fair_use_cases_InternetDig_df.groupby(by <span class="op">=</span> [<span class="st">'fair_use_found'</span>,<span class="st">'categories'</span>,])[<span class="st">'fair_use_found'</span>].agg([<span class="st">'count'</span>]).reset_index()</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.sunburst(df_gp , path<span class="op">=</span>[<span class="st">'fair_use_found'</span>, <span class="st">'categories'</span>], values<span class="op">=</span><span class="st">'count'</span>)</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>fig.update_layout(</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    autosize<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>    width<span class="op">=</span><span class="dv">1200</span>,</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>    height<span class="op">=</span><span class="dv">800</span>,</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>fig.update_layout(title_text<span class="op">=</span><span class="st">'Cantidad de casos judiciales asociados a Internet/Digitization segùn "uso legitimo" (fair use found) determinado por los tribunales'</span>)</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<iframe scrolling="no" width="1220px" height="820" src="iframe_figures/figure_34.html" frameborder="0" allowfullscreen=""></iframe>
+</div>
+</div>
+<p>Relacionando fair_use_cases con fair_use_findings_df.</p>
+<p>Se desea tener màs detalle de los casos judiciales asociado Internet/Digitization</p>
+<div class="cell" data-execution_count="38">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>query <span class="op">=</span><span class="st">"""</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="st">SELECT court, fair_use_found_count,</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="st">RANK() OVER(ORDER BY fair_use_found_count DESC) as 'rank'</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="st">FROM</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="st">(</span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="st">SELECT</span></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="st">  court,</span></span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="st">  SUM(fair_use_found) AS fair_use_found_count</span></span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a><span class="st">FROM fair_use_cases WHERE categories LIKE '%Internet/Digitization%'</span></span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a><span class="st">GROUP BY court</span></span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a><span class="st">) as F</span></span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span></span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> read_query(mydb, query)</span>
+<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Ranking de Cortes-Tribunales que determinan judiciales con uso legitimo asociados a 'Internet/Digitization"</span>)</span>
+<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Ranking de Cortes-Tribunales que determinan judiciales con uso legitimo asociados a 'Internet/Digitization</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="38">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">court</th>
+<th data-quarto-table-cell-role="th">fair_use_found_count</th>
+<th data-quarto-table-cell-role="th">rank</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2d Circuit</td>
+<td>3.0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>C.D. Cal.</td>
+<td>2.0</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>S.D.N.Y.</td>
+<td>2.0</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>D. Nev.</td>
+<td>2.0</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>E.D. Va.</td>
+<td>2.0</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>5th Circuit</td>
+<td>1.0</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>E.D.N.Y.</td>
+<td>1.0</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>S.D. Ohio</td>
+<td>1.0</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>4th Circuit</td>
+<td>1.0</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>N.D. Ill.</td>
+<td>1.0</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>9th Circuit</td>
+<td>1.0</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>3d Circuit</td>
+<td>0.0</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>7th Circuit</td>
+<td>0.0</td>
+<td>12</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>1st Circuit</td>
+<td>0.0</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>D. Ariz</td>
+<td>0.0</td>
+<td>12</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>N.D.Ga.</td>
+<td>0.0</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16</td>
+<td>N.D. Cal.</td>
+<td>0.0</td>
+<td>12</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">17</td>
+<td>W.D. Tex.</td>
+<td>0.0</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">18</td>
+<td>N.D. Ga.</td>
+<td>0.0</td>
+<td>12</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19</td>
+<td>S.D. Fla.</td>
+<td>0.0</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">20</td>
+<td>11th Circuit</td>
+<td>0.0</td>
+<td>12</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="39">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Seleccionamos los casos de Internet/Digitalizaciòn que machean entre las tablas fair_use_cases y fair_use_findings</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>query <span class="op">=</span> <span class="st">"""</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="st">SELECT F.*,FF.* </span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="st">FROM (SELECT * FROM fair_use_cases  WHERE categories LIKE "%Internet/Digitization%") AS F </span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="st">INNER JOIN (SELECT *, IF(title LIKE "%,%", CONCAT(title," ",case_number), CONCAT(title,", ",case_number)) "case" FROM fair_use_findings) AS FF</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a><span class="st">ON F.case = FF.case</span></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell" data-execution_count="43">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Se integran solo 50 registros, hay que limpiar campos title y case_number</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> read_query(mydb, query)</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>df[[<span class="st">'title'</span>,<span class="st">'case_number'</span>,<span class="st">'categories'</span>,<span class="st">'fair_use_found'</span>,<span class="st">'key_facts'</span>,<span class="st">'issue'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="43">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">title</th>
+<th data-quarto-table-cell-role="th">case_number</th>
+<th data-quarto-table-cell-role="th">categories</th>
+<th data-quarto-table-cell-role="th">fair_use_found</th>
+<th data-quarto-table-cell-role="th">key_facts</th>
+<th data-quarto-table-cell-role="th">issue</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Monsarrat v. Newman</td>
+<td>28 F.4th 314 (1st Cir. 2022)</td>
+<td>Internet/Digitization; Textual Work</td>
+<td>1</td>
+<td>In 2010, Plaintiff Jonathan Monsarrat created a post on a community forum discussion thread hosted on the Russian-owned social networking platform, LiveJournal. Monsarrat’s post responded to allegedly defamatory posts about him on the thread by threatening to report the other users for violations of LiveJournal’s harassment policy, which he quoted and linked to in the post. Monsarrat subsequently registered his post with the U.S. Copyright Office in 2012. In 2017, LiveJournal revised its terms of service to comply with Russian law, which permitted censorship. As a result, Defendant Ron Newman moved the forum, including Monsarrat’s registered post, to another platform, Dreamwidth, by copying the forum’s discussion threads and reposting them on Dreamwidth. Monsarrat sued for copyright infringement and Newman moved to dismiss the claim, asserting fair use. The district court held that Newman’s reproduction of the post as part of the discussion thread was fair use. Monsarrat appealed.</td>
+<td>Whether copying a post from one social networking platform to another is fair use.</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Bell v. Eagle Mt. Saginaw Indep. Sch. Distr.</td>
+<td>27 F.4th 313 (5th Cir. 2022)</td>
+<td>Educational/Scholarship/Research; Internet/Digitization; Textual Work</td>
+<td>1</td>
+<td>Plaintiff Dr. Keith Bell, a sports psychologist, wrote and published Winning Isn’t Normal, a book that provides strategies for success in athletics. Bell separately registered the copyright for a 230-word excerpt from the book (the “WIN Passage”). Bell sells merchandise that displays the WIN Passage online and licenses its use. In December 2017, Chisholm Trail High School’s softball team and color guard posted the WIN Passage to their Twitter accounts, crediting Bell as the author. In November 2018, Bell notified Defendant Eagle Mountain Saginaw Independent School District that the Twitter posts infringed his copyright. In response, Defendant removed both posts, told Bell that the mistake was a “teachable moment,” and announced a training program to avoid similar incidents. After settlement negotiations failed, Bell brought an action for copyright infringement. Defendant moved to dismiss, asserting that the school’s use was fair. The district court granted Defendant’s motion and awarded it attorney’s fees. Bell appealed.</td>
+<td>Whether use of a motivational passage excerpted from a book in social media posts by public school athletics programs constitutes fair use.</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Marano v. Metro. Museum of Art</td>
+<td>844 F. App’x 436 (2d Cir. 2021)</td>
+<td>Education/Scholarship/Research; Internet/Digitization; Photograph</td>
+<td>1</td>
+<td>Plaintiff Lawrence Marano, a professional photographer, took a photograph of Eddie Van Halen playing his “Frankenstein” guitar at a concert (the “Photograph”). The Metropolitan Museum of Art (the “Met”), a nonprofit museum that displays works of art to the public, included the Photograph in an online catalogue for a physical exhibition on rock and roll instruments. The catalogue included 185 webpages representing the exhibit objects on physical display. The Photograph was displayed as a thumbnail image on the webpage discussing the “Frankenstein” guitar, along with a large photograph of the guitar, two thumbnail images, and two paragraphs of text describing the guitar’s history and technical specifications. Online visitors could click on the Photograph’s thumbnail to view a larger version of it. Marano sued the Met for willful copyright infringement, and the district court found that the Met’s use of the Photograph was a fair use. Marano appealed.</td>
+<td>Whether posting a photograph in a museum exhibit’s online catalogue to depict an object shown in the Photograph is a fair use.</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Fox Broad. Co. v. Dish Network, LLC,</td>
+<td>No. 2:12-cv-04529-DMG-SH (C.D. Cal. Jan. 12, 2015)</td>
+<td>Film/Audiovisual; Format shifting/Space shifting; Internet/Digitization</td>
+<td>0</td>
+<td>Defendant Dish Network, LLC (Dish) developed and distributed the Hopper, a digital video recorder (DVR) with video on-demand capabilities. At the same time, Dish introduced a feature called PrimeTime Anytime with AutoHop. PrimeTime Anytime allowed subscribers to set a single timer to record primetime programming on major broadcast networks, including plaintiff Fox Broadcasting Co.’s (Fox’s) programs. Dish subscribers had to enable the service, and copies were stored on the DVR for a number of days pre-selected by Dish. AutoHop allowed subscribers to automatically skip commercials, after the time points of those commercials were indexed by Dish, using “quality assurance” copies of Fox’s works. Fox alleged direct and contributory infringement, and the Ninth Circuit affirmed the district court’s denial of a preliminary injunction because Fox had not established a likelihood of success on the merits of its claims. Fox Broad. Co. v. Dish Network LLC., 723 F.3d 1067 (9th Cir. 2013) amended and reh’g en banc denied, 747 F.3d 1060 (9th Cir. 2014). In this subsequent district court proceeding, the parties filed motions for summary judgment which addressed, among other issues, whether Dish’s PrimeTime Anytime with Autohop features constituted fair use.</td>
+<td>Whether it was fair use for Dish to copy Fox’s programming for its PrimeTime Anytime service and to make separate copies of said programing for quality assurance purposes.</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Rosen v. eBay, Inc.,</td>
+<td>No. 2:13-cv-06801-MWF-E (C.D. Cal. Jan. 16, 2015)</td>
+<td>Internet/Digitization; Photograph</td>
+<td>1</td>
+<td>Plaintiff photographer Barry Rosen filed a lawsuit alleging that defendant eBay, Inc. (eBay) infringed the copyrights in several of his works, including a set of photographs that plaintiff licensed for use in physical magazines. Plaintiff claimed that eBay violated his copyrights in the set of photographs by: (1) hosting user generated listings for the resale of the physical magazines that displayed digital pictures of physical prints of his photographs as they originally appeared in the magazines, and (2) relying on servers maintained by a content delivery network (CDN) to facilitate the display of the digital pictures of his photographs to eBay’s end users. Defendant eBay claimed its use of the photographs was protected under the fair use doctrine.</td>
+<td>Whether defendant’s use of digital reproductions of copyright protected photographs to advertise the resale of physical products containing those photographs, including automated copying and distribution of those images over CDNs, constituted fair use.</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>Penguin Grp. (USA), Inc. v. Am. Buddha,</td>
+<td>No. 4:13-cv-02075-JGZ (D. Ariz. May 11, 2015)</td>
+<td>Internet/Digitization; Textual work</td>
+<td>0</td>
+<td>Plaintiff Penguin Group (USA), Inc. (“Penguin”) owned the publication rights to the following four works: Oil! by Upton Sinclair; It Can’t Happen Here, by Sinclair Lewis; E.J. Kinney’s translation of The Golden Ass, by Apuleius; and R.E. Lantham’s translation of On the Nature of Things, by Lucretius (collectively, “the Works”). American Buddha digitized and published the text of each Work, in its entirety, on its various websites. The text American Buddha included on its websites was identical to the Penguin-controlled text, but contained formatting alterations such as bold print, links and images. Penguin filed an action in the United States District Court for the District of Arizona, seeking to enjoin American Buddha from directly or indirectly infringing its copyrights in the Works. This decision pertains to the district court’s disposition of Penguin’s motion for summary judgment on its claim for injunctive relief.</td>
+<td>Whether American Buddha’s digitization and publication of Penguin’s copyright protected works on its websites was fair use.</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>Cambridge Univ. Press v. Patton,</td>
+<td>769 F.3d 1232 (11th Cir. 2014)</td>
+<td>Education/Scholarship/Research; Internet/Digitization; Textual work</td>
+<td>0</td>
+<td>Plaintiffs Cambridge University Press and other publishing houses sued Georgia State University officials for infringing their copyrights by allowing unlicensed portions of their works to be posted on university systems for students to obtain electronically. After the United States District Court for the Northern District of Georgia granted defendants’ summary judgment on plaintiffs’ claims of direct and vicarious infringement, it considered plaintiffs’ allegations of continuing contributory infringement under defendants’ revised fair use policy, which was implemented in February 2009 after the suit commenced. The revised policy required professors to complete a form to determine whether the fair use doctrine permitted them to post materials electronically for students to access. After establishing some general fair use guidelines for its analysis, the district court individually reviewed 74 violations plaintiffs alleged were the result of continuing infringement under the revised 2009 fair use policy. The court held that the revised policy did not provide adequate guidelines, which caused ongoing and continuing misuse of the fair use defense and resulted in five incidents of infringement.</td>
+<td>Whether Georgia State University’s adoption of the 2009 copyright policy caused ongoing and continuing misuse of the fair use doctrine and resulted in infringement of plaintiffs’ works.</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>Authors Guild, Inc. v. HathiTrust,</td>
+<td>755 F.3d 87 (2d Cir. 2014)</td>
+<td>Format shifting/Space shifting; Internet/Digitization; Textual work</td>
+<td>0</td>
+<td>Defendants included several universities and university officials that collaborated with Google, Inc. on the Google Books project that digitized library collections. In 2008, a group of participating universities created defendant HathiTrust to be the administrative entity for the HathiTrust Digital Library (HDL). HDL is a shared digital repository. At the time of the litigation, HathiTrust’s membership included approximately eighty colleges, universities, and other nonprofit institutions. HDL contained digital copies of more than ten million works, “published over many centuries, written in a multitude of languages, [and] covering almost every subject imaginable.” HathiTrust used the digital copies (1) to create a database for full-text searching by the general public, (2) to permit library patrons with certified print disabilities to have access to full texts of works, and (3) to allow libraries to replace their original copies that were lost, destroyed, or stolen where a replacement was unobtainable at a fair price elsewhere. Plaintiffs, individual authors and authors’ associations, appealed the district court’s finding that defendants were entitled to the fair use defense.</td>
+<td>Whether the HDL’s uses of copyrighted material are protected by fair use.</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>Soc’y of the Holy Transfiguration Monestary, Inc. v. Gregory,</td>
+<td>689 F.3d 29 (1st Cir. 2012)</td>
+<td>Internet/Digitization; Textual work; Unpublished</td>
+<td>0</td>
+<td>Plaintiff Society of the Holy Transfiguration Monastery, Inc. owns English translations of seven ancient Greek religious texts, some of which were unpublished. Plaintiff distributed copies of the translations to other parishes that used them for liturgies conducted in English. Defendant Archbishop Gregory, a former member of the monastery, posted a portion of the translations on his website. The Archbishop appealed the district court’s ruling against finding fair use.</td>
+<td>Whether defendant’s posting on his website of plaintiff’s English translations of ancient religious texts constituted fair use.</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>Righthaven, L.L.C. v. Jama,</td>
+<td>No. 2:10-CV-1322 JCM (LRL) (D. Nev. Apr. 22, 2011)</td>
+<td>Education/Scholarship/Research; Internet/Digitization; News reporting; Textual work</td>
+<td>1</td>
+<td>Defendants were Center for Intercultural Organizing (CIO) and its executive Kayse Jama. CIO is a “nonprofit organization dedicated to helping immigrants become aware of immigration-related issues.” After the Las Vegas Review-Journal (LVRJ) published an article on whether police were targeting minorities, defendants posted the article in its entirety on the CIO website. LVRJ subsequently assigned the copyright in the article to plaintiff Righthaven, LLC, which accused defendants of copyright infringement.</td>
+<td>Whether CIO’s unauthorized publication of the LVRJ article on its website was fair use of Righthaven’s copyright in the article.</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>Righthaven, L.L.C. v. Realty One Grp., Inc.,</td>
+<td>No. 2:10-cv-1036-LRH-PAL. (D. Nev. Oct. 19, 2010)</td>
+<td>Internet/Digitization; News reporting; Textual work</td>
+<td>1</td>
+<td>Defendant Michael Nelson, a licensed realtor, operated an internet blog on home ownership in Las Vegas, Nevada. The Las Vegas Review-Journal (LVRJ) published a newspaper article that featured a mix of commentary and factual reporting about the Las Vegas housing market. After the article appeared in LVRJ, defendant copied the first eight of thirty sentences from the article and posted them on his blog. The portion defendant used on his blog contained only factual reporting. After the quoted portion appeared on defendant’s blog, LVRJ assigned the copyright to plaintiff Righthaven, LLC.</td>
+<td>Whether defendant’s unauthorized use of eight factual sentences from a news story constituted fair use.</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>A.V. ex rel. Vanderhye v. iParadigms, L.L.C.,</td>
+<td>562 F.3d 630 (4th Cir. 2009)</td>
+<td>Computer program; Education/Scholarship/Research; Internet/Digitization; Textual work</td>
+<td>1</td>
+<td>Defendant iParadigms, LLC offered subscriptions to a computerized system called Turnitin Plagiarism Detection Service (Turnitin) that enabled schools to monitor for plagiarism by digitally comparing student work. Schools could elect to archive student work in Turnitin’s database for continued use in these digital comparisons. Plaintiffs, high school students, claimed that archiving their schoolwork without their permission infringed their copyrights in those works. The district court ruled that such archiving did not infringe plaintiffs’ copyrights and constituted fair use. Plaintiffs appealed.</td>
+<td>Whether unauthorized digital archiving of student papers for purposes of preventing plagiarism constituted fair use.</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>Perfect 10, Inc. v. Amazon.com, Inc.,</td>
+<td>508 F.3d 1146 (9th Cir. 2007)</td>
+<td>Internet/Digitization; Photograph</td>
+<td>0</td>
+<td>Plaintiff Perfect 10, Inc., a subscription website for images of nude models, alleged that defendants Google, Inc. and Amazon.com, Inc. infringed its copyrights. Plaintiff alleged that Google infringed because its search engine results for image searches included plaintiff’s images. The image search results were shown as reduced-sized, lower resolution “thumbnail” versions of the original images. Another aspect of plaintiff’s claim related to a business agreement Google had with Amazon.com that permitted Google’s search engine to send search results, including plaintiff’s images, to Amazon.com customers. Defendants appealed the district court’s grant of a preliminary injunction enjoining Google from creating and publicly displaying thumbnail versions of plaintiff’s images.</td>
+<td>Whether defendants were likely to prevail on the argument that their use of thumbnail images was a fair use of plaintiff’s images.</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>BMG Music v. Gonzalez,</td>
+<td>430 F.3d 888 (7th Cir. 2005)</td>
+<td>Internet/Digitization; Music</td>
+<td>0</td>
+<td>Plaintiffs, recording companies including BMG Music, alleged that defendant Gonzalez infringed their copyrights in several audio recordings when she used a “file-sharing network” to download and retain unauthorized copies on her home computer. Defendant asserted a fair use defense, claiming she intended to sample the works on a “try-before-you-buy basis.” Defendant appealed the district court’s ruling in plaintiffs’ favor.</td>
+<td>Whether defendant’s unauthorized downloading and retention of plaintiffs’ copyright-protected works to purportedly sample the works before buying was fair use.</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>Wilen v. Alt. Media Net, Inc.,</td>
+<td>No. 03CIV2524 (RMB) (JCF) (S.D.N.Y. Jan. 26, 2005)</td>
+<td>Internet/Digitization; Parody/Satire; Photograph</td>
+<td>0</td>
+<td>Defendant Alternative Media Net operated the website “tvchismes.com.” Plaintiff Patrick Wilen, a professional photographer, alleged that defendant had removed the copyright notices from seven of his registered images and used the images in the membership section of the tvchismes.com website. Due to defendant’s mismanagement of judicial procedure, plaintiff sought default judgment with respect to the copyright infringement claim.</td>
+<td>Whether defendant’s unauthorized use of seven images on its website constituted fair use.</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>Video Pipeline, Inc. v. Buena Vista Home Entm’t, Inc.,</td>
+<td>342 F.3d 191 (3d Cir. 2003)</td>
+<td>Film/Audiovisual; Internet/Digitization</td>
+<td>0</td>
+<td>Defendant Buena Vista Home Entertainment, Inc., a wholly owned subsidiary of The Walt Disney Pictures and Television Co., held an exclusive license to distribute Disney products in the home video market. In 1988, defendant authorized plaintiff Video Pipeline to create compilations of its video trailers and distribute the trailers to traditional home video retail outlets. In 1997, when the video retail market shifted to an internet distribution model, plaintiff began distributing the trailers over the internet, via digital streams, and charging internet video retailers for the right to access the trailers. In 2000, defendant advised plaintiff that it did not have permission to distribute its trailers on the internet. In response, plaintiff filed suit seeking a declaratory judgment that its online use of the trailers was legal pursuant to a previous licensing agreement. Defendant subsequently terminated the licensing agreement. After the licensing agreement was cancelled, plaintiff began using short segments from defendant’s films to create its own movie trailers and stream them over the internet. Plaintiff then sought a declaratory judgment that its use of the segments was permissible. Defendant claimed plaintiff’s use of the segments or “clip previews” infringed its copyrights in the films. Plaintiff argued that its use was protected by the first sale and fair use doctrines. The district court granted a preliminary injunction in favor of defendant.</td>
+<td>Whether plaintiff’s creation, distribution and online display of clip previews constituted fair use.</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16</td>
+<td>United States v. Slater,</td>
+<td>348 F.3d 666 (7th Cir. 2003)</td>
+<td>Computer program; Internet/digitization</td>
+<td>0</td>
+<td>Criminal defendants were members of an internet piracy group, “Pirates With Attitudes” (PWA), which made pirated software freely available for use without permission. In return for downloading pirated software, PWA required members to participate in some aspect of its operations, such as procuring the software, eliminating internal copyright protections, or testing software before it could be uploaded to the group’s servers. Ultimately, the FBI seized the group’s server, and several members were indicted for criminal copyright infringement. At trial, the district court denied defendants’ request to instruct the jury on the fair use defense.</td>
+<td>Whether it was proper for the district court to refuse to instruct the jury on fair use in a criminal case involving software piracy over the Internet.</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">17</td>
+<td>Kelly v. Arriba Soft Corp.,</td>
+<td>336 F.3d 811 (9th Cir. 2003)</td>
+<td>Internet/Digitization; Photograph</td>
+<td>1</td>
+<td>Plaintiff Leslie Kelly, a professional photographer, alleged that defendant Arriba Soft Corp.’s search engine infringed Kelly’s photographs. Defendant operated a visual search engine that “crawled” the internet searching for images that it copied and then generated as smaller, lower-resolution “thumbnail” copies for display on a search results page. Defendant reproduced thirty-five of plaintiff’s photographs and displayed them as thumbnails in response to search requests. Plaintiff appealed the district court’s ruling that defendant’s use of plaintiff’s photographs in its search engine was fair use.</td>
+<td>Whether defendant’s display of thumbnail versions of copyright protected images on an internet visual search engine constituted fair use.</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">18</td>
+<td>A&amp;M Records, Inc. v. Napster, Inc.,</td>
+<td>239 F.3d 1004 (9th Cir. 2001)</td>
+<td>Internet/Digitization; Format shifting/Space shifting; Music</td>
+<td>0</td>
+<td>Defendant Napster, Inc. designed and operated a peer-to-peer (P2P) file- sharing network allowing users to search, access, and download audio recordings stored in MP3 digital file format on their own or others’ computers. Plaintiffs, corporate music producers, complained that Napster users obtained copyrighted works from each other’s networked computers without copyright holders’ authorization. Napster asserted that the service had legitimate purposes: sampling works in deciding whether to make a purchase; accessing works the users already owned (space-shifting); and receiving authorized distributions of copyrighted works. Plaintiffs alleged Napster was liable for contributory and vicarious copyright infringement as a result of its operation of the P2P network. The district court granted plaintiffs a preliminary injunction, finding in part that Napster’s P2P file-sharing service was not a fair use of copyrighted works. Napster appealed.</td>
+<td>Whether transferring copyrighted works in digital audio files from someone else’s computer through a P2P file-sharing network to download a copy, without authorization or payment, constituted fair use.</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19</td>
+<td>Sega Enters. Ltd. v. MAPHIA,</td>
+<td>948 F. Supp. 923 (N.D. Cal. 1996)</td>
+<td>Computer program; Internet/Digitization</td>
+<td>0</td>
+<td>Defendants were MAPHIA, other bulletin boards, and individuals who operated on-line, electronic bulletin boards that enabled users to upload and download plaintiff Sega Enterprises, Ltd.’s copyright-protected video games. In addition, defendant marketed and sold video game copying devices that allowed users to copy, upload, and play unauthorized copies of plaintiff’s games.</td>
+<td>Whether the operator of an online file-sharing system which allowed users to upload and download video games for their private home use constituted fair use.</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Està informaciòn detalladas de casos judiciales, nos permite identificar casos en donde hay màs flexibilidad o control de la ley de derecho de autor en entornos digitales en Estados unidos.</p>
+</section>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
